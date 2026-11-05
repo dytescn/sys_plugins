@@ -1,0 +1,15 @@
+{
+  "server": {
+    "name": "manager_ostfil",
+    "endpoint": "/libostfil",
+    "library": "ostfil"
+  },
+  "tools": [
+    "ostfil_storage.json",
+    "ostfil_get_fil.json",
+    "ostfil_delete_file.json"
+  ],
+  "prompts": [
+    "manager_ostfil.json"
+  ]
+}

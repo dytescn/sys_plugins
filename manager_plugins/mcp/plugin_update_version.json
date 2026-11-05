@@ -1,0 +1,76 @@
+{
+  "name": "plugin_update_version",
+  "title": "更新版本",
+  "description": "全量更新插件版本；id 与 version 必填。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "version": {
+        "type": "string"
+      },
+      "changelog": {
+        "type": "string"
+      },
+      "file_path": {
+        "type": "string"
+      },
+      "file_size": {
+        "type": "integer"
+      },
+      "file_hash": {
+        "type": "string"
+      },
+      "file_type": {
+        "type": "string"
+      },
+      "min_engine_ver": {
+        "type": "string"
+      },
+      "max_engine_ver": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "is_latest": {
+        "type": "integer"
+      },
+      "created_by": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "version"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "update_version"
+  }
+}

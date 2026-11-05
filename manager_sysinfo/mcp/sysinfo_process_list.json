@@ -1,0 +1,45 @@
+{
+  "name": "sysinfo_process_list",
+  "title": "进程列表",
+  "description": "分页读取进程列表，按 PID、名称、内存、CPU、状态返回。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "limit": {
+        "type": "integer",
+        "description": "返回条数",
+        "minimum": 1
+      },
+      "offset": {
+        "type": "integer",
+        "description": "偏移"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/sysinfo",
+    "ffiSymbol": "process_list"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "server": {
+    "name": "manager_sysinfo",
+    "endpoint": "/sysinfo",
+    "library": "sysinfo"
+  },
+  "tools": [
+    "sysinfo_system_basic_info.json",
+    "sysinfo_cpu_info.json",
+    "sysinfo_memory_info.json",
+    "sysinfo_disk_info.json",
+    "sysinfo_process_list.json",
+    "sysinfo_network_info.json",
+    "sysinfo_component_info.json",
+    "sysinfo_file_exists.json",
+    "sysinfo_file_info.json",
+    "sysinfo_create_dir.json",
+    "sysinfo_cur_dir.json",
+    "sysinfo_choose_file.json",
+    "sysinfo_choose_dir.json"
+  ],
+  "prompts": [
+    "manager_sysinfo.json"
+  ]
+}

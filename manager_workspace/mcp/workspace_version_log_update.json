@@ -1,0 +1,77 @@
+{
+  "name": "workspace_version_log_update",
+  "title": "更新版本日志",
+  "description": "按 id 或 uuid 更新版本日志白名单字段。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "staff_uid": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      },
+      "remark": {
+        "type": "string"
+      },
+      "log_type": {
+        "type": "string"
+      },
+      "task_uid": {
+        "type": "string"
+      },
+      "project_uid": {
+        "type": "string"
+      },
+      "features_uid": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "version_log_update"
+  }
+}

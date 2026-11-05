@@ -1,0 +1,82 @@
+{
+  "name": "workspace_design_file_list",
+  "title": "设计文件列表",
+  "description": "分页查询设计文件，支持关键词、过滤与排序。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "description": "页码，默认 1",
+        "minimum": 1,
+        "default": 1
+      },
+      "page_size": {
+        "type": "integer",
+        "description": "每页数量，默认 20，上限 200",
+        "minimum": 1,
+        "maximum": 200,
+        "default": 20
+      },
+      "limit": {
+        "type": "integer",
+        "description": "替代分页的返回条数，范围 1-1000",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      "include_deleted": {
+        "type": "boolean",
+        "description": "仅对软删除资源有效",
+        "default": false
+      },
+      "order": {
+        "type": "string",
+        "description": "排序，字段 + 可选 asc/desc，默认 id DESC",
+        "default": "id DESC"
+      },
+      "filter": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "在资源搜索字段内做 LIKE"
+          },
+          "name": {
+            "type": "string",
+            "description": "等值过滤示例"
+          },
+          "name_like": {
+            "type": "string",
+            "description": "对指定字段做 LIKE"
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "design_file_list"
+  }
+}

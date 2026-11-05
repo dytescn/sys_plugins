@@ -1,0 +1,47 @@
+{
+  "name": "plugin_get_install",
+  "title": "安装记录",
+  "description": "读取本机安装记录。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "plugin_uuid": {
+        "type": "string",
+        "description": "插件 uuid"
+      },
+      "version": {
+        "type": "string",
+        "description": "版本号，可选"
+      }
+    },
+    "required": [
+      "plugin_uuid"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "get_install"
+  }
+}

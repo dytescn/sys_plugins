@@ -1,0 +1,72 @@
+{
+  "name": "material_version_create",
+  "title": "新建素材版本",
+  "description": "新建素材版本，关联设计文件与文件存储编号。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "description": "可选，缺省自动生成"
+      },
+      "cover": {
+        "type": "string",
+        "description": "封面"
+      },
+      "design_uid": {
+        "type": "string",
+        "description": "设计文件 uuid"
+      },
+      "child_uid": {
+        "type": "string",
+        "description": "子版本 uuid"
+      },
+      "soft_ver": {
+        "type": "string",
+        "description": "软件版本"
+      },
+      "name": {
+        "type": "string",
+        "description": "版本名称"
+      },
+      "logs": {
+        "type": "string",
+        "description": "版本日志"
+      },
+      "fuid": {
+        "type": "string",
+        "description": "文件存储编号"
+      },
+      "create_by": {
+        "type": "string",
+        "description": "创建人"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "version_create"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "plugin_post_category",
+  "title": "新增分类",
+  "description": "新增插件分类；type_name 必填。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string"
+      },
+      "type_name": {
+        "type": "string"
+      },
+      "icon": {
+        "type": "string"
+      },
+      "parent_uuid": {
+        "type": "string"
+      },
+      "sort_order": {
+        "type": "integer"
+      },
+      "created_by": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "type_name"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "post_category"
+  }
+}

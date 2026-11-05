@@ -1,0 +1,35 @@
+{
+  "name": "material_setup",
+  "title": "初始化素材库",
+  "description": "创建素材库 5 张表与 17 个索引；幂等。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "setup"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "workspace_design_file_create",
+  "title": "新建设计文件",
+  "description": "新建设计文件；project_uid、name 必填。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "description": "可选，缺省自动生成"
+      },
+      "project_uid": {
+        "type": "string"
+      },
+      "organ_uid": {
+        "type": "string"
+      },
+      "flow_uid": {
+        "type": "string"
+      },
+      "type_uid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "create_by": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "project_uid",
+      "name"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "design_file_create"
+  }
+}

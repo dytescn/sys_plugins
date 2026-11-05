@@ -1,0 +1,54 @@
+{
+  "name": "plugin_patch_plugin",
+  "title": "局部更新插件",
+  "description": "局部更新插件 enabled / status / category_id / cover。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "string"
+      },
+      "category_id": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "uuid"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "patch_plugin"
+  }
+}

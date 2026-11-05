@@ -1,0 +1,35 @@
+{
+  "name": "sysinfo_system_basic_info",
+  "title": "系统基本信息",
+  "description": "名称、内核版本、OS 版本、主机名、运行时长、启动时间与负载。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/sysinfo",
+    "ffiSymbol": "system_basic_info"
+  }
+}

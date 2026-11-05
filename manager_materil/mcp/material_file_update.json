@@ -1,0 +1,80 @@
+{
+  "name": "material_file_update",
+  "title": "更新素材文件",
+  "description": "按 id 或 uuid 更新素材文件白名单字段。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "project_uid": {
+        "type": "string"
+      },
+      "organ_uid": {
+        "type": "string"
+      },
+      "flow_uid": {
+        "type": "string"
+      },
+      "type_uid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "string"
+      },
+      "create_by": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "file_update"
+  }
+}

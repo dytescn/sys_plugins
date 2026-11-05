@@ -1,0 +1,47 @@
+{
+  "name": "plugin_get_libs",
+  "title": "动态库列表",
+  "description": "读取插件动态库登记。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "plugin_uuid": {
+        "type": "string",
+        "description": "插件 uuid"
+      },
+      "local": {
+        "type": [
+          "boolean",
+          "integer"
+        ],
+        "description": "是否只看本地库"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "get_libs"
+  }
+}

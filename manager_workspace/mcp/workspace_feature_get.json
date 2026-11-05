@@ -1,0 +1,61 @@
+{
+  "name": "workspace_feature_get",
+  "title": "项目特性详情",
+  "description": "按 id 或 uuid 读取项目特性。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "include_deleted": {
+        "type": "boolean",
+        "description": "读取时是否包含已删除",
+        "default": false
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "feature_get"
+  }
+}

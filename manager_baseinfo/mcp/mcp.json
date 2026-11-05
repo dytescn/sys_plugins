@@ -1,0 +1,20 @@
+{
+  "server": {
+    "name": "manager_baseinfo",
+    "endpoint": "/info_lib",
+    "library": "info_lib"
+  },
+  "tools": [
+    "info_router_get.json",
+    "info_router_post.json",
+    "info_router_update.json",
+    "info_router_list.json",
+    "info_info_get.json",
+    "info_info_post.json",
+    "info_info_update.json",
+    "info_info_list.json"
+  ],
+  "prompts": [
+    "manager_baseinfo.json"
+  ]
+}

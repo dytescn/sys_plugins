@@ -1,0 +1,80 @@
+{
+  "name": "material_file_tag_set",
+  "title": "设置素材标签",
+  "description": "覆盖或追加素材标签；replace=true 时先清空再写入。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "file_uuid": {
+        "type": "string",
+        "description": "素材文件 uuid"
+      },
+      "replace": {
+        "type": "boolean",
+        "description": "是否先清空，默认 true",
+        "default": true
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "tag_uuid": {
+              "type": "string",
+              "description": "标签 uuid"
+            },
+            "source": {
+              "type": "string",
+              "description": "来源",
+              "enum": [
+                "manual",
+                "ai"
+              ],
+              "default": "manual"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 1.0
+            }
+          },
+          "required": [
+            "tag_uuid"
+          ],
+          "additionalProperties": false
+        },
+        "description": "标签列表"
+      }
+    },
+    "required": [
+      "file_uuid"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "file_tag_set"
+  }
+}

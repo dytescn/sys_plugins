@@ -1,0 +1,43 @@
+{
+  "name": "sysinfo_create_dir",
+  "title": "创建目录",
+  "description": "在当前工作目录下创建目录。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "dir_name": {
+        "type": "string",
+        "description": "目录名"
+      }
+    },
+    "required": [
+      "dir_name"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/sysinfo",
+    "ffiSymbol": "create_dir"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "info_info_list",
+  "title": "查询设置项列表",
+  "description": "分页查询设置项，支持分类与关键词过滤；每项合并 note。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string",
+        "description": "按分类过滤"
+      },
+      "keyword": {
+        "type": "string",
+        "description": "key / title / description 模糊匹配"
+      },
+      "page": {
+        "type": "integer",
+        "description": "页码，默认 1",
+        "minimum": 1,
+        "default": 1
+      },
+      "page_size": {
+        "type": "integer",
+        "description": "每页数量，默认 50，上限 200",
+        "minimum": 1,
+        "maximum": 200,
+        "default": 50
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/info_lib",
+    "ffiSymbol": "info_list"
+  }
+}

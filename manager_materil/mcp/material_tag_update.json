@@ -1,0 +1,71 @@
+{
+  "name": "material_tag_update",
+  "title": "更新标签",
+  "description": "按 id 或 uuid 更新标签白名单字段。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "name": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string"
+      },
+      "color": {
+        "type": "string"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "source": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "tag_update"
+  }
+}

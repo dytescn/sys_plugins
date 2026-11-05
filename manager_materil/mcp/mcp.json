@@ -1,0 +1,36 @@
+{
+  "server": {
+    "name": "manager_materil",
+    "endpoint": "/material_lib",
+    "library": "material_lib"
+  },
+  "tools": [
+    "material_setup.json",
+    "material_file_list.json",
+    "material_file_get.json",
+    "material_file_create.json",
+    "material_file_update.json",
+    "material_file_delete.json",
+    "material_file_search.json",
+    "material_type_list.json",
+    "material_type_get.json",
+    "material_type_create.json",
+    "material_type_update.json",
+    "material_type_delete.json",
+    "material_version_list.json",
+    "material_version_get.json",
+    "material_version_create.json",
+    "material_version_update.json",
+    "material_version_delete.json",
+    "material_tag_list.json",
+    "material_tag_get.json",
+    "material_tag_create.json",
+    "material_tag_update.json",
+    "material_tag_delete.json",
+    "material_file_tag_list.json",
+    "material_file_tag_set.json"
+  ],
+  "prompts": [
+    "manager_materil.json"
+  ]
+}

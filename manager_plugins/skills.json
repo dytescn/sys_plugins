@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "skills": [
+    {
+      "id": "manager-plugins",
+      "name": "plugin_lib 能力管理",
+      "description": "设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具与提示词。",
+      "category": "plugin",
+      "content": "# manager_plugins\n\n## 定位\n\n设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具与提示词。\n\n底层能力库：`plugin_lib`；端点：`POST http://127.0.0.1:44944/plugin_lib`。\n\n## 调用约定\n\n```http\nPOST http://127.0.0.1:44944/plugin_lib\nContent-Type: application/libary\nFFI-Symbol: <symbol>\n\n{}\n```\n\n- 响应统一为 `{\"code\": 200, \"data\": {}, \"msg\": \"success\"}`，`code != 200` 时读取 `msg`。\n- 输出缓冲区 64 KiB；超过时 FFI 返回 `-2`，请分页或缩小请求。\n- 每个 MCP 工具的 `transport.endpoint` 与 `transport.ffiSymbol` 指向真实 FFI 调用。\n\n## 工具\n\n- 插件列表：分页查询设计插件，支持分类、关键词、状态与目标软件过滤。\n- 插件详情：按 uuid 或 name 读取单个插件。\n- 分类列表：读取插件分类，可按父分类过滤。\n- 版本列表：读取指定插件的版本列表。\n- 配置定义：读取插件配置定义与当前值。\n- 安装记录：读取本机安装记录。\n- 动态库列表：读取插件动态库登记。\n- 能力清单：读取插件能力清单，支持库、插件、本地、AI、向量状态过滤。\n- 技能分类列表：读取技能分类。\n- 技能列表：读取技能列表，支持分类、id、插件、启用状态与正文过滤。\n- 单个技能：按 id 读取技能正文。\n- 新增插件：新增插件元数据；name 必填。\n- 新增分类：新增插件分类；type_name 必填。\n- 新增版本：新增插件版本；plugin_uuid 与 version 必填。\n- 新增配置定义：新增插件配置定义；plugin_uuid 与 param_key 必填。\n- 新增技能：新增技能；id、name、category 必填。\n- 新增技能分类：新增技能分类；code 与 name 必填。\n- 扫描插件目录：扫描 ./plugins，登记动态库、能力与技能；幂等。\n- 检查插件更新：调用 dytes update --check 同步检查插件更新。\n- 安装插件：通过 dytes 安装设计插件；plugin_uuid 或 name 至少一个。\n- 卸载插件：卸载插件并删除安装目录；plugin_uuid 或 name 至少一个。\n- 重新安装插件：通过 dytes 重新安装当前最新版本；plugin_uuid 或 name 至少一个。\n- 物理删除插件：删除插件元数据与安装文件；不可恢复。plugin_uuid 或 name 至少一个。\n- 局部更新插件：局部更新插件 enabled / status / category_id / cover。\n- 局部更新安装状态：局部更新安装记录。\n- 保存配置值：保存插件配置值；plugin_uuid、key、value 必填。\n- 回写能力状态：回写能力的 AI 召回与向量化状态。\n- 更新插件：全量更新插件元数据；uuid 与 name 必填。\n- 更新分类：全量更新插件分类；uuid 与 type_name 必填。\n- 更新版本：全量更新插件版本；id 与 version 必填。\n- 更新配置定义：全量更新配置定义；id 与 param_key 必填。\n- 更新技能：更新技能；id 必填。\n- 更新技能分类：更新技能分类；code 必填。\n- 删除技能：物理删除技能；id 必填。\n- 删除技能分类：物理删除技能分类；code 必填。\n- SSE 检查更新：供 cyctron /sse?lib=plugin_lib&symbol=check_updates_sse 使用，输出作为事件 data。\n\n## 使用规则\n\n- get_* 是只读；post_* / patch_* / update_* / delete_* 会写 plugins.db。\n- post_install / post_update / post_check_updates 会调用外部 dytes，属于有副作用操作，先向用户确认。\n- post_delete 会物理删除插件元数据与安装目录，不可恢复。\n- post_scan 幂等；安装或手动放入插件后可用它登记能力与技能。\n",
+      "trigger": "插件；插件列表；插件市场；安装插件；卸载插件；更新插件；扫描插件；插件能力；插件动态库；插件版本；插件分类；插件配置",
+      "params_schema": {
+        "type": "object",
+        "properties": {}
+      },
+      "sort": 10
+    }
+  ]
+}

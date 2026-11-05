@@ -1,0 +1,62 @@
+{
+  "name": "material_type_update",
+  "title": "更新素材类型",
+  "description": "按 id 或 uuid 更新 type_name / icon。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "type_name": {
+        "type": "string"
+      },
+      "icon": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "type_update"
+  }
+}

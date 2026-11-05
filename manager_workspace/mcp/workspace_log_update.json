@@ -1,0 +1,83 @@
+{
+  "name": "workspace_log_update",
+  "title": "更新项目日志",
+  "description": "按 id 或 uuid 更新项目日志白名单字段。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "project_uid": {
+        "type": "string"
+      },
+      "task_uid": {
+        "type": "string"
+      },
+      "staff_uid": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      },
+      "remark": {
+        "type": "string"
+      },
+      "log_type": {
+        "type": "string"
+      },
+      "action_type": {
+        "type": "string"
+      },
+      "to_staff_uid": {
+        "type": "string"
+      },
+      "is_comment": {
+        "type": "integer"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "log_update"
+  }
+}

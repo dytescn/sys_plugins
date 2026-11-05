@@ -1,0 +1,78 @@
+{
+  "name": "material_type_list",
+  "title": "查询素材类型列表",
+  "description": "分页查询素材类型字典。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "description": "页码，默认 1",
+        "minimum": 1,
+        "default": 1
+      },
+      "page_size": {
+        "type": "integer",
+        "description": "每页数量，默认 20，上限 100",
+        "minimum": 1,
+        "maximum": 100,
+        "default": 20
+      },
+      "type_uid": {
+        "type": "string",
+        "description": "按类型过滤"
+      },
+      "project_uid": {
+        "type": "string",
+        "description": "按项目过滤（素材文件）"
+      },
+      "tag_uuid": {
+        "type": "string",
+        "description": "按标签过滤（素材文件）"
+      },
+      "design_uid": {
+        "type": "string",
+        "description": "按设计文件过滤（素材版本）"
+      },
+      "fuid": {
+        "type": "string",
+        "description": "按存储编号过滤（素材版本）"
+      },
+      "keyword": {
+        "type": "string",
+        "description": "名称 / 描述模糊匹配"
+      },
+      "include_deleted": {
+        "type": "boolean",
+        "description": "是否包含已删除记录",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/material_lib",
+    "ffiSymbol": "type_list"
+  }
+}

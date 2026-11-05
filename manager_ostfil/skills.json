@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "skills": [
+    {
+      "id": "manager-ostfil",
+      "name": "ostfil 能力管理",
+      "description": "本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具与提示词。",
+      "category": "plugin",
+      "content": "# manager_ostfil\n\n## 定位\n\n本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具与提示词。\n\n底层能力库：`ostfil`；端点：`POST http://127.0.0.1:44944/libostfil`。\n\n## 调用约定\n\n```http\nPOST http://127.0.0.1:44944/libostfil\nContent-Type: application/libary\nFFI-Symbol: <symbol>\n\n{}\n```\n\n- 响应统一为 `{\"code\": 200, \"data\": {}, \"msg\": \"success\"}`，`code != 200` 时读取 `msg`。\n- 输出缓冲区 64 KiB；超过时 FFI 返回 `-2`，请分页或缩小请求。\n- 每个 MCP 工具的 `transport.endpoint` 与 `transport.ffiSymbol` 指向真实 FFI 调用。\n\n## 工具\n\n- 存储本地文件：把已有本地文件复制到 storage/<uuid>/，返回 uuid、大小、扩展名、结束时间与 md5。\n- 读取已存储对象：按 uuid 读取 storage/<uuid>/ 下的对象信息；必要时解压 original.z。\n- 删除已存储对象：按 uuid 删除 storage/<uuid>/ 整个目录。\n\n## 使用规则\n\n- storage 只复制已存在的本地文件，返回 uuid / size / extra / end_time / md5。\n- get_fil 与 delete_file 都以 storage 返回的 uuid 定位 storage/<uuid>/。\n- 端点名是 /libostfil，不是 /ostfil。\n- get_fil 只返回对象信息，不要把大文件正文当作单次 64 KiB 响应读取。\n",
+      "trigger": "文件存储；存储文件；保存文件；文件归档；文件对象；读取文件；删除文件；文件副本；存储目录；附件存储；文件大小；文件扩展名",
+      "params_schema": {
+        "type": "object",
+        "properties": {}
+      },
+      "sort": 10
+    }
+  ]
+}

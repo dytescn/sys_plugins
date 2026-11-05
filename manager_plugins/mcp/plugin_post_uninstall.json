@@ -1,0 +1,54 @@
+{
+  "name": "plugin_post_uninstall",
+  "title": "卸载插件",
+  "description": "卸载插件并删除安装目录；plugin_uuid 或 name 至少一个。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "plugin_uuid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "plugin_uuid"
+        ]
+      },
+      {
+        "required": [
+          "name"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "post_uninstall"
+  }
+}

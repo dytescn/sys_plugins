@@ -1,0 +1,110 @@
+{
+  "name": "workspace_project_update",
+  "title": "更新项目",
+  "description": "按 id 或 uuid 更新项目白名单字段。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "自增主键"
+      },
+      "uuid": {
+        "type": "string",
+        "description": "业务 uuid"
+      },
+      "organ_uid": {
+        "type": "string"
+      },
+      "create_by": {
+        "type": "string"
+      },
+      "pro_tpl_uid": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "schedule": {
+        "type": "integer"
+      },
+      "is_private": {
+        "type": "integer"
+      },
+      "is_archived": {
+        "type": "integer"
+      },
+      "archive_time": {
+        "type": "string"
+      },
+      "open_begin_time": {
+        "type": "string"
+      },
+      "open_task_private": {
+        "type": "integer"
+      },
+      "begin_time": {
+        "type": "string"
+      },
+      "end_time": {
+        "type": "string"
+      },
+      "recycle_time": {
+        "type": "string"
+      },
+      "is_recycled": {
+        "type": "integer"
+      },
+      "auto_update_schedule": {
+        "type": "integer"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "uuid"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "project_update"
+  }
+}

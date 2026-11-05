@@ -1,0 +1,56 @@
+{
+  "name": "info_info_get",
+  "title": "获取设置项",
+  "description": "按 id 或 key 读取一个设置项，并合并 designdb 中的 note 分类对象。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "设置项 ID"
+      },
+      "key": {
+        "type": "string",
+        "description": "设置键，唯一"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "id"
+        ]
+      },
+      {
+        "required": [
+          "key"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/info_lib",
+    "ffiSymbol": "info_get"
+  }
+}

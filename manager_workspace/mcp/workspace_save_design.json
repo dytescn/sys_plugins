@@ -1,0 +1,54 @@
+{
+  "name": "workspace_save_design",
+  "title": "保存设计到工作区",
+  "description": "保存当前设计到工作区：准备目录、写库并经 libostfil 归档版本文件。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "project_uid": {
+        "type": "string"
+      },
+      "file_name": {
+        "type": "string"
+      },
+      "puid": {
+        "type": "string"
+      },
+      "uuid": {
+        "type": "string"
+      },
+      "ver": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "project_uid"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/workspace_lib",
+    "ffiSymbol": "save_design"
+  }
+}

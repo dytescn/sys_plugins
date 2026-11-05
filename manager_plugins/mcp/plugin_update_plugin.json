@@ -1,0 +1,82 @@
+{
+  "name": "plugin_update_plugin",
+  "title": "更新插件",
+  "description": "全量更新插件元数据；uuid 与 name 必填。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "ouid": {
+        "type": "string"
+      },
+      "flow_uid": {
+        "type": "string"
+      },
+      "type_uid": {
+        "type": "string"
+      },
+      "category_id": {
+        "type": "string"
+      },
+      "desc": {
+        "type": "string"
+      },
+      "create_by": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "public": {
+        "type": "integer"
+      },
+      "updated_by": {
+        "type": "string"
+      },
+      "plugin_type": {
+        "type": "string"
+      },
+      "target": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "uuid",
+      "name"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "update_plugin"
+  }
+}

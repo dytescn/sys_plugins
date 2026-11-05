@@ -1,0 +1,99 @@
+{
+  "name": "plugin_get_functions",
+  "title": "能力清单",
+  "description": "读取插件能力清单，支持库、插件、本地、AI、向量状态过滤。",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "uuids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "能力 uuid 列表"
+      },
+      "lib_uuid": {
+        "type": "string",
+        "description": "库 uuid"
+      },
+      "lib_name": {
+        "type": "string",
+        "description": "库名"
+      },
+      "plugin_uuid": {
+        "type": "string",
+        "description": "插件 uuid"
+      },
+      "local": {
+        "type": [
+          "boolean",
+          "integer"
+        ],
+        "description": "本地能力"
+      },
+      "use_ai": {
+        "type": [
+          "boolean",
+          "integer"
+        ],
+        "description": "AI 召回"
+      },
+      "embed_status": {
+        "description": "向量化状态，整数或整数数组",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "category": {
+        "type": "string",
+        "description": "能力分类"
+      },
+      "page": {
+        "type": "integer",
+        "description": "页码，默认 1",
+        "minimum": 1,
+        "default": 1
+      },
+      "page_size": {
+        "type": "integer",
+        "description": "每页数量，默认 100",
+        "minimum": 1,
+        "default": 100
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "description": "业务状态码，200 表示成功"
+      },
+      "data": {
+        "description": "业务数据"
+      },
+      "msg": {
+        "type": "string",
+        "description": "success 或错误描述"
+      }
+    },
+    "required": [
+      "code",
+      "msg"
+    ],
+    "additionalProperties": false
+  },
+  "transport": {
+    "endpoint": "/plugin_lib",
+    "ffiSymbol": "get_functions"
+  }
+}
