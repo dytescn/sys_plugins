@@ -49,8 +49,5 @@
     "workspace_project_archive.json",
     "workspace_project_restore.json",
     "workspace_save_design.json"
-  ],
-  "prompts": [
-    "manager_workspace.json"
   ]
 }

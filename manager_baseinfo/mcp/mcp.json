@@ -13,8 +13,5 @@
     "info_info_post.json",
     "info_info_update.json",
     "info_info_list.json"
-  ],
-  "prompts": [
-    "manager_baseinfo.json"
   ]
 }

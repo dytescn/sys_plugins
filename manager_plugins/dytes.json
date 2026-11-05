@@ -2,11 +2,10 @@
   "name": "manager_plugins",
   "uuid": "4daf5173-9e28-4061-b254-3f7ead208154",
   "version": "0.1.0",
-  "description": "设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具与提示词。",
+  "description": "设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具。",
   "keywords": [
     "plugin_lib",
     "mcp",
-    "prompts",
     "plugin"
   ],
   "author": "funxdata",
@@ -22,7 +21,6 @@
   "exports": {
     "./mcp/mcp.json": "mcp.json",
     "./skills.json": "skills.json",
-    "./prompts/manager_plugins.json": "manager_plugins.json",
     "./skills/manager_plugins.md": "manager_plugins.md",
     "./mcp/plugin_get_plugins.json": "plugin_get_plugins.json",
     "./mcp/plugin_get_plugin.json": "plugin_get_plugin.json",
@@ -65,7 +63,6 @@
     "windows": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_plugins.json": "manager_plugins.json",
       "./skills/manager_plugins.md": "manager_plugins.md",
       "./mcp/plugin_get_plugins.json": "plugin_get_plugins.json",
       "./mcp/plugin_get_plugin.json": "plugin_get_plugin.json",
@@ -107,7 +104,6 @@
     "linux": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_plugins.json": "manager_plugins.json",
       "./skills/manager_plugins.md": "manager_plugins.md",
       "./mcp/plugin_get_plugins.json": "plugin_get_plugins.json",
       "./mcp/plugin_get_plugin.json": "plugin_get_plugin.json",
@@ -149,7 +145,6 @@
     "macos": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_plugins.json": "manager_plugins.json",
       "./skills/manager_plugins.md": "manager_plugins.md",
       "./mcp/plugin_get_plugins.json": "plugin_get_plugins.json",
       "./mcp/plugin_get_plugin.json": "plugin_get_plugin.json",

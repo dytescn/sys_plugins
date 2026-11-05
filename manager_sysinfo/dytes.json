@@ -2,11 +2,10 @@
   "name": "manager_sysinfo",
   "uuid": "5eb06284-af39-4172-c365-408fbe319265",
   "version": "0.1.0",
-  "description": "系统信息与文件目录插件：将 sysinfo 的系统信息、文件、目录与对话框 FFI 整理为 MCP 工具与提示词。",
+  "description": "系统信息与文件目录插件：将 sysinfo 的系统信息、文件、目录与对话框 FFI 整理为 MCP 工具。",
   "keywords": [
     "sysinfo",
     "mcp",
-    "prompts",
     "plugin"
   ],
   "author": "funxdata",
@@ -22,7 +21,6 @@
   "exports": {
     "./mcp/mcp.json": "mcp.json",
     "./skills.json": "skills.json",
-    "./prompts/manager_sysinfo.json": "manager_sysinfo.json",
     "./skills/manager_sysinfo.md": "manager_sysinfo.md",
     "./mcp/sysinfo_system_basic_info.json": "sysinfo_system_basic_info.json",
     "./mcp/sysinfo_cpu_info.json": "sysinfo_cpu_info.json",
@@ -42,7 +40,6 @@
     "windows": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_sysinfo.json": "manager_sysinfo.json",
       "./skills/manager_sysinfo.md": "manager_sysinfo.md",
       "./mcp/sysinfo_system_basic_info.json": "sysinfo_system_basic_info.json",
       "./mcp/sysinfo_cpu_info.json": "sysinfo_cpu_info.json",
@@ -61,7 +58,6 @@
     "linux": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_sysinfo.json": "manager_sysinfo.json",
       "./skills/manager_sysinfo.md": "manager_sysinfo.md",
       "./mcp/sysinfo_system_basic_info.json": "sysinfo_system_basic_info.json",
       "./mcp/sysinfo_cpu_info.json": "sysinfo_cpu_info.json",
@@ -80,7 +76,6 @@
     "macos": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_sysinfo.json": "manager_sysinfo.json",
       "./skills/manager_sysinfo.md": "manager_sysinfo.md",
       "./mcp/sysinfo_system_basic_info.json": "sysinfo_system_basic_info.json",
       "./mcp/sysinfo_cpu_info.json": "sysinfo_cpu_info.json",

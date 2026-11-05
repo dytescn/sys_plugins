@@ -1,13 +1,13 @@
 # sys_plugins
 
-Piksel 系统能力库（`sys`）的 MCP / 提示词插件包集合。
+Piksel 系统能力库（`sys`）的 MCP 插件包集合。
 
 每个子目录对应一个系统能力库，把该库的 FFI 整理为：
 
 - **MCP 工具**：`mcp/mcp.json` + 每个 FFI 一个工具 JSON，`transport.endpoint` /
   `transport.ffiSymbol` 指回真实能力库；
-- **提示词**：`prompts/<name>.json` 触发词组，`skills/<name>.md` 使用规范；
-- **技能**：`skills.json`，`use_ai: true` 时由 `plugin_lib` 导入 `plugins.db.skills`。
+- **技能**：`skills.json`，`use_ai: true` 时由 `plugin_lib` 导入 `plugins.db.skills`；
+- **技能文档**：`skills/<name>.md`，说明工具用途与调用规则。
 
 | 目录 | 对应能力库 | 端点 | 工具数 |
 | --- | --- | --- | --- |

@@ -29,8 +29,5 @@
     "material_tag_delete.json",
     "material_file_tag_list.json",
     "material_file_tag_set.json"
-  ],
-  "prompts": [
-    "manager_materil.json"
   ]
 }

@@ -2,7 +2,7 @@
 
 ## 定位
 
-项目与工作区管理插件：将 workspace_lib 的项目、特性、版本、日志、设计文件与版本 FFI 整理为 MCP 工具与提示词。
+项目与工作区管理插件：将 workspace_lib 的项目、特性、版本、日志、设计文件与版本 FFI 整理为 MCP 工具。
 
 底层能力库：`workspace_lib`；端点：`POST http://127.0.0.1:44944/workspace_lib`。
 

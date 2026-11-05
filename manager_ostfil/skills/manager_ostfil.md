@@ -2,7 +2,7 @@
 
 ## 定位
 
-本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具与提示词。
+本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具。
 
 底层能力库：`ostfil`；端点：`POST http://127.0.0.1:44944/libostfil`。
 

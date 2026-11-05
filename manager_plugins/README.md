@@ -1,6 +1,6 @@
 # manager_plugins
 
-设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具与提示词。
+设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具。
 
 | 项 | 内容 |
 | --- | --- |
@@ -13,9 +13,9 @@
 | 工具数 | 36 |
 | MCP | `mcp/mcp.json` → 安装为 `mcp.json` |
 | 技能 | `skills.json`（`use_ai: true` 必需） |
-| 提示词 | `prompts/manager_plugins.json`、`skills/manager_plugins.md` |
+| 技能文档 | `skills/manager_plugins.md` |
 
-本包只包含清单、MCP 工具定义、技能与提示词，不额外打包 DLL。
+本包只包含清单、MCP 工具定义与技能，不额外打包 DLL。
 `transport` 字段把每个工具指回已安装的 `plugin_lib` 能力库，
 因此安装后不会复制或重命名系统库。
 
@@ -27,8 +27,6 @@ manager_plugins/
 ├── mcp/
 │   ├── mcp.json
 │   └── <tool>.json
-├── prompts/
-│   └── manager_plugins.json
 ├── skills/
 │   └── manager_plugins.md
 ├── skills.json
@@ -96,7 +94,7 @@ dytes install plugin manager_plugins
 ```
 
 安装后目录为 `plugins/manager_plugins/`，其中包含 `dytes.json`、`mcp.json`、
-各工具 JSON、`skills.json`、`manager_plugins.json` 与 `manager_plugins.md`。
+各工具 JSON、`skills.json` 与 `manager_plugins.md`。
 
 ## 5. 约束
 

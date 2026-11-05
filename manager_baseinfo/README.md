@@ -1,6 +1,6 @@
 # manager_baseinfo
 
-系统基础信息（路由 / 设置项）管理插件：将 info_lib 的 FFI 整理为 MCP 工具与提示词。
+系统基础信息（路由 / 设置项）管理插件：将 info_lib 的 FFI 整理为 MCP 工具。
 
 | 项 | 内容 |
 | --- | --- |
@@ -13,9 +13,9 @@
 | 工具数 | 8 |
 | MCP | `mcp/mcp.json` → 安装为 `mcp.json` |
 | 技能 | `skills.json`（`use_ai: true` 必需） |
-| 提示词 | `prompts/manager_baseinfo.json`、`skills/manager_baseinfo.md` |
+| 技能文档 | `skills/manager_baseinfo.md` |
 
-本包只包含清单、MCP 工具定义、技能与提示词，不额外打包 DLL。
+本包只包含清单、MCP 工具定义与技能，不额外打包 DLL。
 `transport` 字段把每个工具指回已安装的 `info_lib` 能力库，
 因此安装后不会复制或重命名系统库。
 
@@ -27,8 +27,6 @@ manager_baseinfo/
 ├── mcp/
 │   ├── mcp.json
 │   └── <tool>.json
-├── prompts/
-│   └── manager_baseinfo.json
 ├── skills/
 │   └── manager_baseinfo.md
 ├── skills.json
@@ -68,7 +66,7 @@ dytes install plugin manager_baseinfo
 ```
 
 安装后目录为 `plugins/manager_baseinfo/`，其中包含 `dytes.json`、`mcp.json`、
-各工具 JSON、`skills.json`、`manager_baseinfo.json` 与 `manager_baseinfo.md`。
+各工具 JSON、`skills.json` 与 `manager_baseinfo.md`。
 
 ## 5. 约束
 

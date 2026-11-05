@@ -2,7 +2,7 @@
 
 ## 定位
 
-设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具与提示词。
+设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具。
 
 底层能力库：`plugin_lib`；端点：`POST http://127.0.0.1:44944/plugin_lib`。
 

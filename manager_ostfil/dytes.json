@@ -2,11 +2,10 @@
   "name": "manager_ostfil",
   "uuid": "3c9e4062-8d17-4f50-a143-2e6d9c1f7043",
   "version": "0.1.0",
-  "description": "本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具与提示词。",
+  "description": "本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具。",
   "keywords": [
     "ostfil",
     "mcp",
-    "prompts",
     "plugin"
   ],
   "author": "funxdata",
@@ -22,7 +21,6 @@
   "exports": {
     "./mcp/mcp.json": "mcp.json",
     "./skills.json": "skills.json",
-    "./prompts/manager_ostfil.json": "manager_ostfil.json",
     "./skills/manager_ostfil.md": "manager_ostfil.md",
     "./mcp/ostfil_storage.json": "ostfil_storage.json",
     "./mcp/ostfil_get_fil.json": "ostfil_get_fil.json",
@@ -32,7 +30,6 @@
     "windows": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_ostfil.json": "manager_ostfil.json",
       "./skills/manager_ostfil.md": "manager_ostfil.md",
       "./mcp/ostfil_storage.json": "ostfil_storage.json",
       "./mcp/ostfil_get_fil.json": "ostfil_get_fil.json",
@@ -41,7 +38,6 @@
     "linux": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_ostfil.json": "manager_ostfil.json",
       "./skills/manager_ostfil.md": "manager_ostfil.md",
       "./mcp/ostfil_storage.json": "ostfil_storage.json",
       "./mcp/ostfil_get_fil.json": "ostfil_get_fil.json",
@@ -50,7 +46,6 @@
     "macos": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_ostfil.json": "manager_ostfil.json",
       "./skills/manager_ostfil.md": "manager_ostfil.md",
       "./mcp/ostfil_storage.json": "ostfil_storage.json",
       "./mcp/ostfil_get_fil.json": "ostfil_get_fil.json",

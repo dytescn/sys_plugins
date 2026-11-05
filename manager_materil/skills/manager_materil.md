@@ -2,7 +2,7 @@
 
 ## 定位
 
-素材库管理插件：将 material_lib 的素材、类型、版本、标签与语义搜索 FFI 整理为 MCP 工具与提示词。
+素材库管理插件：将 material_lib 的素材、类型、版本、标签与语义搜索 FFI 整理为 MCP 工具。
 
 底层能力库：`material_lib`；端点：`POST http://127.0.0.1:44944/material_lib`。
 

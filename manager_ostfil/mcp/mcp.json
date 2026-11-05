@@ -8,8 +8,5 @@
     "ostfil_storage.json",
     "ostfil_get_fil.json",
     "ostfil_delete_file.json"
-  ],
-  "prompts": [
-    "manager_ostfil.json"
   ]
 }

@@ -2,11 +2,10 @@
   "name": "manager_baseinfo",
   "uuid": "1a7c2e40-6b95-4d3e-8f21-0c4b7a9d5e31",
   "version": "0.1.0",
-  "description": "系统基础信息（路由 / 设置项）管理插件：将 info_lib 的 FFI 整理为 MCP 工具与提示词。",
+  "description": "系统基础信息（路由 / 设置项）管理插件：将 info_lib 的 FFI 整理为 MCP 工具。",
   "keywords": [
     "info_lib",
     "mcp",
-    "prompts",
     "plugin"
   ],
   "author": "funxdata",
@@ -22,7 +21,6 @@
   "exports": {
     "./mcp/mcp.json": "mcp.json",
     "./skills.json": "skills.json",
-    "./prompts/manager_baseinfo.json": "manager_baseinfo.json",
     "./skills/manager_baseinfo.md": "manager_baseinfo.md",
     "./mcp/info_router_get.json": "info_router_get.json",
     "./mcp/info_router_post.json": "info_router_post.json",
@@ -37,7 +35,6 @@
     "windows": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_baseinfo.json": "manager_baseinfo.json",
       "./skills/manager_baseinfo.md": "manager_baseinfo.md",
       "./mcp/info_router_get.json": "info_router_get.json",
       "./mcp/info_router_post.json": "info_router_post.json",
@@ -51,7 +48,6 @@
     "linux": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_baseinfo.json": "manager_baseinfo.json",
       "./skills/manager_baseinfo.md": "manager_baseinfo.md",
       "./mcp/info_router_get.json": "info_router_get.json",
       "./mcp/info_router_post.json": "info_router_post.json",
@@ -65,7 +61,6 @@
     "macos": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_baseinfo.json": "manager_baseinfo.json",
       "./skills/manager_baseinfo.md": "manager_baseinfo.md",
       "./mcp/info_router_get.json": "info_router_get.json",
       "./mcp/info_router_post.json": "info_router_post.json",

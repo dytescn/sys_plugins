@@ -2,11 +2,10 @@
   "name": "manager_materil",
   "uuid": "2b8d3f51-7c06-4e4f-9032-1d5c8b0e6f42",
   "version": "0.1.0",
-  "description": "素材库管理插件：将 material_lib 的素材、类型、版本、标签与语义搜索 FFI 整理为 MCP 工具与提示词。",
+  "description": "素材库管理插件：将 material_lib 的素材、类型、版本、标签与语义搜索 FFI 整理为 MCP 工具。",
   "keywords": [
     "material_lib",
     "mcp",
-    "prompts",
     "plugin"
   ],
   "author": "funxdata",
@@ -22,7 +21,6 @@
   "exports": {
     "./mcp/mcp.json": "mcp.json",
     "./skills.json": "skills.json",
-    "./prompts/manager_materil.json": "manager_materil.json",
     "./skills/manager_materil.md": "manager_materil.md",
     "./mcp/material_setup.json": "material_setup.json",
     "./mcp/material_file_list.json": "material_file_list.json",
@@ -53,7 +51,6 @@
     "windows": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_materil.json": "manager_materil.json",
       "./skills/manager_materil.md": "manager_materil.md",
       "./mcp/material_setup.json": "material_setup.json",
       "./mcp/material_file_list.json": "material_file_list.json",
@@ -83,7 +80,6 @@
     "linux": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_materil.json": "manager_materil.json",
       "./skills/manager_materil.md": "manager_materil.md",
       "./mcp/material_setup.json": "material_setup.json",
       "./mcp/material_file_list.json": "material_file_list.json",
@@ -113,7 +109,6 @@
     "macos": {
       "./mcp/mcp.json": "mcp.json",
       "./skills.json": "skills.json",
-      "./prompts/manager_materil.json": "manager_materil.json",
       "./skills/manager_materil.md": "manager_materil.md",
       "./mcp/material_setup.json": "material_setup.json",
       "./mcp/material_file_list.json": "material_file_list.json",
