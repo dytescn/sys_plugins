@@ -41,5 +41,12 @@
     "plugin_delete_skill.json",
     "plugin_delete_skill_category.json",
     "plugin_check_updates_sse.json"
+  ],
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
   ]
 }

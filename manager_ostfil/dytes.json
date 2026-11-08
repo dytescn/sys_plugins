@@ -1,7 +1,7 @@
 {
   "name": "manager_ostfil",
   "uuid": "3c9e4062-8d17-4f50-a143-2e6d9c1f7043",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "本地文件存储插件：将 libostfil 的存储、读取与删除 FFI 整理为 MCP 工具。",
   "keywords": [
     "ostfil",
@@ -51,5 +51,12 @@
       "./mcp/ostfil_get_fil.json": "ostfil_get_fil.json",
       "./mcp/ostfil_delete_file.json": "ostfil_delete_file.json"
     }
-  }
+  },
+  "category": "file",
+  "tags": [
+    "file",
+    "readonly",
+    "write",
+    "storage"
+  ]
 }

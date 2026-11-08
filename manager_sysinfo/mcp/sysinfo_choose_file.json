@@ -31,5 +31,11 @@
   "transport": {
     "endpoint": "/sysinfo",
     "ffiSymbol": "choose_file"
-  }
+  },
+  "category": "system",
+  "tags": [
+    "system",
+    "readonly",
+    "info"
+  ]
 }

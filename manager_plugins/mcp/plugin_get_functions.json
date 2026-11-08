@@ -95,5 +95,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "get_functions"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

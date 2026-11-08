@@ -78,5 +78,12 @@
   "transport": {
     "endpoint": "/workspace_lib",
     "ffiSymbol": "design_file_list"
-  }
+  },
+  "category": "workspace",
+  "tags": [
+    "workspace",
+    "project",
+    "readonly",
+    "write"
+  ]
 }

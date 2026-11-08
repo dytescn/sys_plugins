@@ -8,5 +8,12 @@
     "ostfil_storage.json",
     "ostfil_get_fil.json",
     "ostfil_delete_file.json"
+  ],
+  "category": "file",
+  "tags": [
+    "file",
+    "readonly",
+    "write",
+    "storage"
   ]
 }

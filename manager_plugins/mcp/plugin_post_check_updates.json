@@ -31,5 +31,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "post_check_updates"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

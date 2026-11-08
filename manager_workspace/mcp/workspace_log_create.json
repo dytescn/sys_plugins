@@ -66,5 +66,12 @@
   "transport": {
     "endpoint": "/workspace_lib",
     "ffiSymbol": "log_create"
-  }
+  },
+  "category": "workspace",
+  "tags": [
+    "workspace",
+    "project",
+    "readonly",
+    "write"
+  ]
 }

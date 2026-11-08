@@ -59,5 +59,12 @@
   "transport": {
     "endpoint": "/material_lib",
     "ffiSymbol": "file_search"
-  }
+  },
+  "category": "material",
+  "tags": [
+    "material",
+    "readonly",
+    "write",
+    "file"
+  ]
 }

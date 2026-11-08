@@ -31,5 +31,11 @@
   "transport": {
     "endpoint": "/sysinfo",
     "ffiSymbol": "cur_dir"
-  }
+  },
+  "category": "system",
+  "tags": [
+    "system",
+    "readonly",
+    "info"
+  ]
 }

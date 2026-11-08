@@ -93,5 +93,12 @@
   "transport": {
     "endpoint": "/workspace_lib",
     "ffiSymbol": "project_create"
-  }
+  },
+  "category": "workspace",
+  "tags": [
+    "workspace",
+    "project",
+    "readonly",
+    "write"
+  ]
 }

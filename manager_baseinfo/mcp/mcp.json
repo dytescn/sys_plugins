@@ -13,5 +13,12 @@
     "info_info_post.json",
     "info_info_update.json",
     "info_info_list.json"
+  ],
+  "category": "info",
+  "tags": [
+    "settings",
+    "router",
+    "readonly",
+    "write"
   ]
 }

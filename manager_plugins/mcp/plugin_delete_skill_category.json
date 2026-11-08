@@ -38,5 +38,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "delete_skill_category"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "manager_sysinfo",
   "uuid": "5eb06284-af39-4172-c365-408fbe319265",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "系统信息与文件目录插件：将 sysinfo 的系统信息、文件、目录与对话框 FFI 整理为 MCP 工具。",
   "keywords": [
     "sysinfo",
@@ -91,5 +91,11 @@
       "./mcp/sysinfo_choose_file.json": "sysinfo_choose_file.json",
       "./mcp/sysinfo_choose_dir.json": "sysinfo_choose_dir.json"
     }
-  }
+  },
+  "category": "system",
+  "tags": [
+    "system",
+    "readonly",
+    "info"
+  ]
 }

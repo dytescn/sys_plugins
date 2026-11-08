@@ -1,7 +1,7 @@
 {
   "name": "manager_materil",
   "uuid": "2b8d3f51-7c06-4e4f-9032-1d5c8b0e6f42",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "素材库管理插件：将 material_lib 的素材、类型、版本、标签与语义搜索 FFI 整理为 MCP 工具。",
   "keywords": [
     "material_lib",
@@ -135,5 +135,12 @@
       "./mcp/material_file_tag_list.json": "material_file_tag_list.json",
       "./mcp/material_file_tag_set.json": "material_file_tag_set.json"
     }
-  }
+  },
+  "category": "material",
+  "tags": [
+    "material",
+    "readonly",
+    "write",
+    "file"
+  ]
 }

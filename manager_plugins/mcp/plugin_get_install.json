@@ -43,5 +43,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "get_install"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

@@ -31,5 +31,11 @@
   "transport": {
     "endpoint": "/sysinfo",
     "ffiSymbol": "cpu_info"
-  }
+  },
+  "category": "system",
+  "tags": [
+    "system",
+    "readonly",
+    "info"
+  ]
 }

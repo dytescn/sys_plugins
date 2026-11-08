@@ -29,5 +29,12 @@
     "material_tag_delete.json",
     "material_file_tag_list.json",
     "material_file_tag_set.json"
+  ],
+  "category": "material",
+  "tags": [
+    "material",
+    "readonly",
+    "write",
+    "file"
   ]
 }

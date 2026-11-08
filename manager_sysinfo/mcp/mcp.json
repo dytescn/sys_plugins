@@ -18,5 +18,11 @@
     "sysinfo_cur_dir.json",
     "sysinfo_choose_file.json",
     "sysinfo_choose_dir.json"
+  ],
+  "category": "system",
+  "tags": [
+    "system",
+    "readonly",
+    "info"
   ]
 }

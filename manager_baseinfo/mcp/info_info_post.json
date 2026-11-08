@@ -97,5 +97,12 @@
   "transport": {
     "endpoint": "/info_lib",
     "ffiSymbol": "info_post"
-  }
+  },
+  "category": "info",
+  "tags": [
+    "settings",
+    "router",
+    "readonly",
+    "write"
+  ]
 }

@@ -75,5 +75,12 @@
   "transport": {
     "endpoint": "/info_lib",
     "ffiSymbol": "router_update"
-  }
+  },
+  "category": "info",
+  "tags": [
+    "settings",
+    "router",
+    "readonly",
+    "write"
+  ]
 }

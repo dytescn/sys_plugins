@@ -57,5 +57,12 @@
   "transport": {
     "endpoint": "/workspace_lib",
     "ffiSymbol": "feature_delete"
-  }
+  },
+  "category": "workspace",
+  "tags": [
+    "workspace",
+    "project",
+    "readonly",
+    "write"
+  ]
 }

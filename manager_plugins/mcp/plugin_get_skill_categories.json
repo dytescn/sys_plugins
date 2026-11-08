@@ -31,5 +31,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "get_skill_categories"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

@@ -71,5 +71,12 @@
   "transport": {
     "endpoint": "/plugin_lib",
     "ffiSymbol": "update_skill"
-  }
+  },
+  "category": "plugin",
+  "tags": [
+    "plugin",
+    "readonly",
+    "write",
+    "settings"
+  ]
 }

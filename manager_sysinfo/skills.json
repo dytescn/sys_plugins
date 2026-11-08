@@ -5,7 +5,7 @@
       "id": "manager-sysinfo",
       "name": "sysinfo 能力管理",
       "description": "系统信息与文件目录插件：将 sysinfo 的系统信息、文件、目录与对话框 FFI 整理为 MCP 工具。",
-      "category": "plugin",
+      "category": "system",
       "content": "# manager_sysinfo\n\n## 定位\n\n系统信息与文件目录插件：将 sysinfo 的系统信息、文件、目录与对话框 FFI 整理为 MCP 工具。\n\n底层能力库：`sysinfo`；端点：`POST http://127.0.0.1:44944/sysinfo`。\n\n## 调用约定\n\n```http\nPOST http://127.0.0.1:44944/sysinfo\nContent-Type: application/libary\nFFI-Symbol: <symbol>\n\n{}\n```\n\n- 响应统一为 `{\"code\": 200, \"data\": {}, \"msg\": \"success\"}`，`code != 200` 时读取 `msg`。\n- 输出缓冲区 64 KiB；超过时 FFI 返回 `-2`，请分页或缩小请求。\n- 每个 MCP 工具的 `transport.endpoint` 与 `transport.ffiSymbol` 指向真实 FFI 调用。\n\n## 工具\n\n- 系统基本信息：名称、内核版本、OS 版本、主机名、运行时长、启动时间与负载。\n- CPU 信息：CPU 型号、核心数与使用率等。\n- 内存信息：物理内存与交换区使用情况。\n- 磁盘信息：各磁盘容量与使用情况。\n- 进程列表：分页读取进程列表，按 PID、名称、内存、CPU、状态返回。\n- 网络信息：网络接口、地址与流量信息。\n- 组件信息：温度传感器等硬件组件信息。\n- 文件存在性：检查文件或目录是否存在。\n- 文件信息：读取文件 / 目录大小、类型、修改与创建时间；不跟随符号链接。\n- 创建目录：在当前工作目录下创建目录。\n- 当前运行目录：返回 Piksel 的当前运行目录。\n- 选择文件对话框：弹出原生文件选择框；阻塞式，需要人工操作。\n- 选择目录对话框：弹出原生目录选择框；阻塞式，需要人工操作。\n\n## 使用规则\n\n- 系统信息类工具只读；create_dir 只创建目录，不复制文件。\n- create_dir 的输入字段是 dir_name，不是 path。\n- process_list 用 limit / offset 分页，避免超过 64 KiB 输出。\n- choose_file / choose_dir 是阻塞式原生弹窗，需要人工操作，不能自动化。\n",
       "trigger": "系统信息；CPU；内存；磁盘；进程；网络；组件；温度；系统版本；操作系统；主机名；运行时长",
       "params_schema": {
