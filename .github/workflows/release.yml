@@ -1,0 +1,51 @@
+name: Release sys_plugins package
+
+on:
+  push:
+    tags:
+      - "manager_*-v*"
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 包目录，例如 manager_baseinfo
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.package || github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: meta
+        name: Verify tag and package version
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            ref="${GITHUB_REF_NAME}"
+            package="${ref%-v*}"
+            tag_version="${ref##*-v}"
+          else
+            package="${{ inputs.package }}"
+            tag_version=""
+          fi
+          version=$(node -p "require('./${package}/dytes.json').version")
+          if [ -n "${tag_version}" ] && [ "${tag_version}" != "${version}" ]; then
+            echo "tag ${ref} 与 ${package}/dytes.json 版本 ${version} 不一致" >&2
+            exit 1
+          fi
+          echo "package=${package}" >> "$GITHUB_OUTPUT"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish with dytes
+        uses: dytescn/dytes@v0.1.21
+        with:
+          command: publish
+          version: "0.1.21"
+          dir: ${{ steps.meta.outputs.package }}
+          args: --skip-check

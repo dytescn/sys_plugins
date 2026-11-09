@@ -1,7 +1,7 @@
 {
   "name": "manager_workspace",
   "uuid": "6fc17395-b04a-4283-d476-519acf42a376",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "项目与工作区管理插件：将 workspace_lib 的项目、特性、版本、日志、设计文件与版本 FFI 整理为 MCP 工具。",
   "keywords": [
     "workspace_lib",
@@ -10,7 +10,7 @@
   ],
   "author": "funxdata",
   "type": "design_plugins",
-  "plugins_type": "plugins",
+  "plugins_type": "sys_plugins",
   "targets": [
     "common"
   ],

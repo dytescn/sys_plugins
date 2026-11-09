@@ -1,7 +1,7 @@
 {
   "name": "manager_baseinfo",
   "uuid": "1a7c2e40-6b95-4d3e-8f21-0c4b7a9d5e31",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "系统基础信息（路由 / 设置项）管理插件：将 info_lib 的 FFI 整理为 MCP 工具。",
   "keywords": [
     "info_lib",
@@ -10,7 +10,7 @@
   ],
   "author": "funxdata",
   "type": "design_plugins",
-  "plugins_type": "plugins",
+  "plugins_type": "sys_plugins",
   "targets": [
     "common"
   ],

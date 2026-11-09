@@ -1,7 +1,7 @@
 {
   "name": "manager_plugins",
   "uuid": "4daf5173-9e28-4061-b254-3f7ead208154",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "设计插件管理插件：将 plugin_lib 的插件、能力、技能、安装与扫描 FFI 整理为 MCP 工具。",
   "keywords": [
     "plugin_lib",
@@ -10,7 +10,7 @@
   ],
   "author": "funxdata",
   "type": "design_plugins",
-  "plugins_type": "plugins",
+  "plugins_type": "sys_plugins",
   "targets": [
     "common"
   ],

@@ -6,7 +6,7 @@
 | --- | --- |
 | 包名 | `manager_workspace` |
 | 版本 | `0.1.0` |
-| 类型 | `design_plugins`（`plugins_type: plugins`） |
+| 类型 | `design_plugins`（`plugins_type: sys_plugins`） |
 | 适用 | `targets: ["common"]`，`use_ai: true` |
 | 底层库 | `workspace_lib` |
 | HTTP 端点 | `POST http://127.0.0.1:44944/workspace_lib` |

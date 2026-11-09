@@ -34,7 +34,7 @@ dytes install plugin manager_workspace
 
 ## 约定
 
-- `dytes.json`：`type: design_plugins`、`plugins_type: plugins`、`targets: ["common"]`、
+- `dytes.json`：`type: design_plugins`、`plugins_type: sys_plugins`、`targets: ["common"]`、
   `use_ai: true`，`mcp` / `skills` 指向包内文件；
 - `mcp.json` 的 `tools` 必须非空，每个工具文件都通过 `exports` 导出；
 - 更新 FFI 时同步修改 `mcp/<tool>.json`、`mcp.json` 的 `tools`、`dytes.json` 的
