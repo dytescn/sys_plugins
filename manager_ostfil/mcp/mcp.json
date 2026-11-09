@@ -2,7 +2,8 @@
   "server": {
     "name": "manager_ostfil",
     "endpoint": "/libostfil",
-    "library": "ostfil"
+    "library": "ostfil",
+    "library_uuid": "0bddf9d9-9a72-43e7-ac64-6e9e39b773be"
   },
   "tools": [
     "ostfil_storage.json",

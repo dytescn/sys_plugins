@@ -79,7 +79,9 @@
   },
   "transport": {
     "endpoint": "/plugin_lib",
-    "ffiSymbol": "post_plugin"
+    "ffiSymbol": "post_plugin",
+    "library": "plugin_lib",
+    "library_uuid": "8b1c9907-692d-473e-8676-459aec1ec6ba"
   },
   "category": "plugin",
   "tags": [

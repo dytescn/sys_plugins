@@ -56,7 +56,9 @@
   },
   "transport": {
     "endpoint": "/material_lib",
-    "ffiSymbol": "tag_get"
+    "ffiSymbol": "tag_get",
+    "library": "material_lib",
+    "library_uuid": "3a3bea1e-e3cb-4765-b0e6-b8d2333bb375"
   },
   "category": "material",
   "tags": [

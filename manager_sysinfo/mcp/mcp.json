@@ -2,7 +2,8 @@
   "server": {
     "name": "manager_sysinfo",
     "endpoint": "/sysinfo",
-    "library": "sysinfo"
+    "library": "sysinfo",
+    "library_uuid": "86a6db59-026d-4dfd-a138-a5708cfa141b"
   },
   "tools": [
     "sysinfo_system_basic_info.json",

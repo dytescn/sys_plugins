@@ -49,7 +49,9 @@
   },
   "transport": {
     "endpoint": "/workspace_lib",
-    "ffiSymbol": "project_restore"
+    "ffiSymbol": "project_restore",
+    "library": "workspace_lib",
+    "library_uuid": "6b2cac42-0389-49b1-a74a-55d133148400"
   },
   "category": "workspace",
   "tags": [

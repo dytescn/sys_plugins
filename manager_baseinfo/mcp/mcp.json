@@ -2,7 +2,8 @@
   "server": {
     "name": "manager_baseinfo",
     "endpoint": "/info_lib",
-    "library": "info_lib"
+    "library": "info_lib",
+    "library_uuid": "6be1125d-28d9-464f-89c1-ffa51db61ce7"
   },
   "tools": [
     "info_router_get.json",

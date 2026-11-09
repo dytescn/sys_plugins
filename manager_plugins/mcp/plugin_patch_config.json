@@ -49,7 +49,9 @@
   },
   "transport": {
     "endpoint": "/plugin_lib",
-    "ffiSymbol": "patch_config"
+    "ffiSymbol": "patch_config",
+    "library": "plugin_lib",
+    "library_uuid": "8b1c9907-692d-473e-8676-459aec1ec6ba"
   },
   "category": "plugin",
   "tags": [

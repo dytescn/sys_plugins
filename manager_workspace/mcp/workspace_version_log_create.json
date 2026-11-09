@@ -59,7 +59,9 @@
   },
   "transport": {
     "endpoint": "/workspace_lib",
-    "ffiSymbol": "version_log_create"
+    "ffiSymbol": "version_log_create",
+    "library": "workspace_lib",
+    "library_uuid": "6b2cac42-0389-49b1-a74a-55d133148400"
   },
   "category": "workspace",
   "tags": [

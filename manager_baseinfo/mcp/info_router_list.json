@@ -60,7 +60,9 @@
   },
   "transport": {
     "endpoint": "/info_lib",
-    "ffiSymbol": "router_list"
+    "ffiSymbol": "router_list",
+    "library": "info_lib",
+    "library_uuid": "6be1125d-28d9-464f-89c1-ffa51db61ce7"
   },
   "category": "info",
   "tags": [

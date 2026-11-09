@@ -2,7 +2,8 @@
   "server": {
     "name": "manager_workspace",
     "endpoint": "/workspace_lib",
-    "library": "workspace_lib"
+    "library": "workspace_lib",
+    "library_uuid": "6b2cac42-0389-49b1-a74a-55d133148400"
   },
   "tools": [
     "workspace_setup.json",

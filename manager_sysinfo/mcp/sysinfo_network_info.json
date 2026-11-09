@@ -30,7 +30,9 @@
   },
   "transport": {
     "endpoint": "/sysinfo",
-    "ffiSymbol": "network_info"
+    "ffiSymbol": "network_info",
+    "library": "sysinfo",
+    "library_uuid": "86a6db59-026d-4dfd-a138-a5708cfa141b"
   },
   "category": "system",
   "tags": [

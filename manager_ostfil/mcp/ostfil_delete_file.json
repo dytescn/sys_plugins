@@ -38,7 +38,9 @@
   },
   "transport": {
     "endpoint": "/libostfil",
-    "ffiSymbol": "delete_file"
+    "ffiSymbol": "delete_file",
+    "library": "ostfil",
+    "library_uuid": "0bddf9d9-9a72-43e7-ac64-6e9e39b773be"
   },
   "category": "file",
   "tags": [
