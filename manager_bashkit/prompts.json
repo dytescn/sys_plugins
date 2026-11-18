@@ -1,0 +1,20 @@
+{
+  "prompts": [
+    {
+      "id": "bashkit-sandbox-exec",
+      "name": "沙箱 Bash 执行",
+      "content": "需要执行 shell 时调用 bash_exec；结果看 exit_code，非零不一定是调用失败；沙箱不保留跨调用状态。",
+      "category": "system",
+      "sort": 10,
+      "is_enabled": 1
+    },
+    {
+      "id": "bashkit-output-limit",
+      "name": "输出截断处理",
+      "content": "输出超过 1 MiB 会截断；大结果先写入虚拟文件，再用 head 或 grep 分段读取。",
+      "category": "system",
+      "sort": 20,
+      "is_enabled": 1
+    }
+  ]
+}

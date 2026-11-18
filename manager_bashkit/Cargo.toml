@@ -1,0 +1,22 @@
+[package]
+name = "manager_bashkit"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+authors = ["dytescn"]
+description = "bashkit 插件：把 everruns/bashkit 的沙箱 bash 执行整理为 MCP 工具"
+license = "MIT"
+repository = "https://github.com/dytescn/design_plugins"
+publish = false
+
+[lib]
+name = "bashkit"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+bashkit_core = { package = "bashkit", version = "0.21" }
+serde_json = "1"
+tokio = { version = "1", features = ["rt", "time"] }
+
+[dev-dependencies]
+serde_json = "1"

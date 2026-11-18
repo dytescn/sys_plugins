@@ -1,0 +1,66 @@
+{
+  "server": {
+    "name": "manager_bashkit",
+    "endpoint": "/bashkit"
+  },
+  "tools": [
+    {
+      "name": "bash_exec",
+      "title": "执行 Bash 脚本",
+      "description": "在隔离的虚拟 bash 沙箱（everruns/bashkit）中执行脚本，返回退出码、stdout 与 stderr。",
+      "ffi_symbol": "bash_exec",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "commands": {
+            "type": "string",
+            "description": "要执行的 bash 脚本，可包含多条命令、管道、重定向与控制流"
+          }
+        },
+        "required": [
+          "commands"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "业务状态码，200 表示成功"
+          },
+          "data": {
+            "description": "成功时为执行结果对象（exit_code / stdout / stderr / 截断标记），参数错误时为 null"
+          },
+          "msg": {
+            "type": "string",
+            "description": "success 或错误描述"
+          }
+        },
+        "required": [
+          "code",
+          "msg"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "transport": {
+        "endpoint": "/bashkit",
+        "ffiSymbol": "bash_exec",
+        "symbol": "post_bash_exec"
+      }
+    }
+  ],
+  "category": "system",
+  "tags": [
+    "system",
+    "shell",
+    "exec",
+    "sandbox"
+  ]
+}

@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: 包目录，例如 manager_baseinfo
+        description: 包目录，例如 manager_bashkit
         required: true
         type: string
 
@@ -39,13 +39,28 @@ jobs:
             echo "tag ${ref} 与 ${package}/dytes.json 版本 ${version} 不一致" >&2
             exit 1
           fi
+          cargo_version=$(sed -n '/^\[package\]/,/^\[/{s/^version = "\(.*\)"/\1/p;}' "${package}/Cargo.toml" | head -1)
+          if [ "${cargo_version}" != "${version}" ]; then
+            echo "${package}/Cargo.toml 版本 ${cargo_version} 与 dytes.json 版本 ${version} 不一致" >&2
+            exit 1
+          fi
           echo "package=${package}" >> "$GITHUB_OUTPUT"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build and test package
+        working-directory: ${{ steps.meta.outputs.package }}
+        run: |
+          cargo test
+          cargo build --release
+
+      # 发布使用当前 runner 平台产物：ubuntu-latest 产出 libbashkit.so。
+      # Windows / macOS 包需在对应平台 runner 或本地按 .github/workflows/README.md 发布。
       - name: Publish with dytes
-        uses: dytescn/dytes@v0.1.21
+        uses: dytescn/dytes@v0.2.4
         with:
           command: publish
-          version: "0.1.21"
+          version: "0.2.4"
           dir: ${{ steps.meta.outputs.package }}
-          args: --skip-check

@@ -1,0 +1,8 @@
+[
+  {
+    "plugin_uuid": "b9580952-48a4-44a6-b388-da66e225b569",
+    "plugin_name": "manager_bashkit",
+    "desc": "在隔离的虚拟 bash 沙箱中执行脚本并返回执行结果",
+    "ffi_symbol": "post_bash_exec"
+  }
+]

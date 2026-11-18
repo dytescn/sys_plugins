@@ -1,0 +1,54 @@
+{
+  "name": "manager_bashkit",
+  "uuid": "b9580952-48a4-44a6-b388-da66e225b569",
+  "version": "0.1.0",
+  "description": "bashkit 插件：把 everruns/bashkit 的沙箱 bash 执行整理为 MCP 工具。",
+  "keywords": [
+    "bashkit",
+    "bash",
+    "shell",
+    "mcp",
+    "plugin"
+  ],
+  "author": "funxdata",
+  "type": "design_plugins",
+  "plugins_type": "sys_plugins",
+  "targets": [
+    "common"
+  ],
+  "use_ai": false,
+  "license": "MIT",
+  "mcp": "mcp.json",
+  "exports": {
+    "./mcp.json": "mcp.json",
+    "./prompts.json": "prompts.json",
+    "./taskflow.json": "taskflow.json"
+  },
+  "platform-exports": {
+    "windows": {
+      "./target/release/bashkit.dll": "bashkit.dll",
+      "./mcp.json": "mcp.json",
+      "./prompts.json": "prompts.json",
+      "./taskflow.json": "taskflow.json"
+    },
+    "linux": {
+      "./target/release/libbashkit.so": "libbashkit.so",
+      "./mcp.json": "mcp.json",
+      "./prompts.json": "prompts.json",
+      "./taskflow.json": "taskflow.json"
+    },
+    "macos": {
+      "./target/release/libbashkit.dylib": "libbashkit.dylib",
+      "./mcp.json": "mcp.json",
+      "./prompts.json": "prompts.json",
+      "./taskflow.json": "taskflow.json"
+    }
+  },
+  "category": "system",
+  "tags": [
+    "system",
+    "shell",
+    "exec",
+    "sandbox"
+  ]
+}
