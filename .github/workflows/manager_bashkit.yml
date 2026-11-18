@@ -1,0 +1,72 @@
+name: Release manager_bashkit
+
+on:
+  push:
+    tags:
+      - "manager_bashkit-v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      # 串行发布：三个平台都会更新同一份 packages.json，并发会互相覆盖。
+      max-parallel: 1
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+            lib: bashkit.dll
+          - os: ubuntu-latest
+            platform: linux
+            lib: libbashkit.so
+          - os: macos-latest
+            platform: macos
+            lib: libbashkit.dylib
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          version=$(node -p "require('./manager_bashkit/dytes.json').version")
+          cargo_version=$(sed -n '/^\[package\]/,/^\[/{s/^version = "\(.*\)"/\1/p;}' manager_bashkit/Cargo.toml | head -1)
+          if [ "${cargo_version}" != "${version}" ]; then
+            echo "manager_bashkit/Cargo.toml 版本 ${cargo_version} 与 dytes.json 版本 ${version} 不一致" >&2
+            exit 1
+          fi
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            tag_version="${GITHUB_REF_NAME##*-v}"
+            if [ "${tag_version}" != "${version}" ]; then
+              echo "tag ${GITHUB_REF_NAME} 与 dytes.json 版本 ${version} 不一致" >&2
+              exit 1
+            fi
+          fi
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build and test
+        working-directory: manager_bashkit
+        shell: bash
+        run: |
+          cargo test
+          cargo build --release
+          test -f "target/release/${{ matrix.lib }}"
+
+      - name: Install dytes
+        shell: bash
+        run: cargo install --git https://github.com/dytescn/dytes --tag v0.2.4 --locked
+
+      - name: Publish
+        shell: bash
+        env:
+          DYTES_S3_ACCESS_KEY: ${{ secrets.UPYUN_API_KEY }}
+          DYTES_S3_SECRET_KEY: ${{ secrets.UPYUN_API_SECRET }}
+        run: dytes publish --dir manager_bashkit

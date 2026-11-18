@@ -3,6 +3,10 @@
 本目录的 workflow 负责把 `sys_plugins` 里的插件包发布到 dytes。以下规范同时约束
 人工发布与 CI 发布，发布前逐项确认。
 
+**一个包一个 workflow**：文件名 `<package>.yml`，与包目录同名（如
+`manager_bashkit.yml`）。新增包时复制已有的 workflow，改名字、tag 前缀、
+包目录与库名即可，不要改回通用 workflow。
+
 ## 1. 版本
 
 - `dytes.json` 的 `version` 与 `Cargo.toml` 的 `[package].version` **必须**一致；
@@ -43,22 +47,34 @@ dytes check .          # 或 dytes check manager_bashkit
 本地 `dytes` **必须**使用 ≥ 0.2.4：更早版本不支持 `mcp.json` 的内联工具对象，
 会把对象误判为文件名并让 `check` 失败。
 
-## 5. CI 发布（`release.yml`）
+## 5. CI 发布（`manager_bashkit.yml`）
 
 触发方式：
 
-- push tag：`manager_*-v*`，包名与版本从 tag 解析；
-- 手动：`workflow_dispatch`，输入包目录名（如 `manager_bashkit`）。
+- push tag：`manager_bashkit-v*`；
+- 手动：`workflow_dispatch`。
 
 流程：
 
 1. 校验 tag 版本、`dytes.json` 版本与 `Cargo.toml` 版本三者一致；
 2. 安装 Rust 工具链，在包目录执行 `cargo test` 与 `cargo build --release`；
-3. 调用 `dytes publish`（action 版本 `v0.2.4`）发布，**禁止**使用 `--skip-check`。
+3. 源码构建 dytes 0.2.4（该版本没有根 `action.yml`，不能再用 `uses: dytescn/dytes@...`）；
+4. 调用 `dytes publish` 发布，**禁止**使用 `--skip-check`。
 
-**平台**：发布产物是当前 runner 平台的动态库。现有 workflow 使用 `ubuntu-latest`，
-只产出 Linux `.so`。Windows 的 `bashkit.dll` 与 macOS 的 `.dylib` **必须**在对应平台的
-runner 或本地按相同流程发布；不要用 Linux 产物冒充 Windows 包。
+**三平台**：workflow 用 matrix 覆盖 Windows / Linux / macOS，分别产出
+`bashkit.dll`、`libbashkit.so`、`libbashkit.dylib`，并按
+`platform-exports` 上传到对应平台目录。三个 job 通过 `max-parallel: 1`
+串行执行，避免并发覆盖 `packages.json`。
+
+**凭证**：发布需要仓库 secrets：
+
+| Secret | 用途 |
+| --- | --- |
+| `UPYUN_API_KEY` | S3 access key |
+| `UPYUN_API_SECRET` | S3 secret key |
+
+endpoint / bucket 使用 dytes 内置默认值。secrets 缺失时发布会在更新
+`packages.json` 时失败（`ErrInvalidAccessKeyID` 或读取失败）。
 
 ## 6. 导出产物
 
@@ -70,7 +86,7 @@ runner 或本地按相同流程发布；不要用 Linux 产物冒充 Windows 包
 | `mcp.json` | MCP 清单（包根，工具内联在 `tools` 中） |
 | `prompts.json` | 提示词数组 |
 | `taskflow.json` | 任务流数组 |
-| `target/release/<lib>` | 当前平台动态库 |
+| `target/release/<lib>` | 当前平台动态库：`bashkit.dll` / `libbashkit.so` / `libbashkit.dylib` |
 
 `src/`、`docs/`、`skills/`、`tests/`、`Cargo.*` **不**导出。
 
