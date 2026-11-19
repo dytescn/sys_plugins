@@ -25,9 +25,9 @@
 
 ## 3. Tag
 
-- 格式：`<package>-v<version>`，例如 `manager_bashkit-v0.1.0`；
+- 格式：`<package>-v<version>`，例如 `manager_bashkit-v0.2.0`；
 - tag 中的版本**必须**与 `dytes.json` 的 `version` 完全一致，否则 workflow 直接失败；
-- 使用 annotated tag：`git tag -a manager_bashkit-v0.1.0 -m "manager_bashkit 0.1.0"`；
+- 使用 annotated tag：`git tag -a manager_bashkit-v0.2.0 -m "manager_bashkit 0.2.0"`；
 - tag **必须**打在发布提交上；已推送的 tag **不得**移动、删除后复用或覆盖。
 
 ## 4. 本地发布前检查
@@ -62,7 +62,7 @@ dytes check .          # 或 dytes check manager_bashkit
 4. 调用 `dytes publish` 发布，**禁止**使用 `--skip-check`。
 
 **三平台**：workflow 用 matrix 覆盖 Windows / Linux / macOS，分别产出
-`bashkit.dll`、`libbashkit.so`、`libbashkit.dylib`，并按
+`bashkit.dll`、`bashkit.so`、`bashkit.dylib`，并按
 `platform-exports` 上传到对应平台目录。三个 job 通过 `max-parallel: 1`
 串行执行，避免并发覆盖 `packages.json`。
 
@@ -86,7 +86,7 @@ endpoint / bucket 使用 dytes 内置默认值。secrets 缺失时发布会在�
 | `mcp.json` | MCP 清单（包根，工具内联在 `tools` 中） |
 | `prompts.json` | 提示词数组 |
 | `taskflow.json` | 任务流数组 |
-| `target/release/<lib>` | 当前平台动态库：`bashkit.dll` / `libbashkit.so` / `libbashkit.dylib` |
+| `target/release/<lib>` | 当前平台动态库：`bashkit.dll` / `bashkit.so` / `bashkit.dylib` |
 
 `src/`、`docs/`、`skills/`、`tests/`、`Cargo.*` **不**导出。
 

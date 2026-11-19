@@ -9,11 +9,11 @@ bashkit 是纯 Rust 的虚拟 bash 解释器：167 个内建命令在进程内�
 | 项 | 内容 |
 | --- | --- |
 | 包名 | `manager_bashkit` |
-| 版本 | `0.1.0` |
+| 版本 | `0.2.0` |
 | 类型 | `design_plugins`（`plugins_type: sys_plugins`） |
 | 适用 | `targets: ["common"]`，`use_ai: false` |
 | 上游库 | `bashkit = "0.21"`（crates.io / GitHub `everruns/bashkit`） |
-| 产物 | `target/release/bashkit.dll` / `libbashkit.so` / `libbashkit.dylib` |
+| 产物 | `target/release/bashkit.dll` / `bashkit.so` / `bashkit.dylib` |
 | HTTP 端点 | `POST http://127.0.0.1:44944/bashkit` |
 | FFI 符号 | `bash_exec`（导出函数 `post_bash_exec`） |
 | 工具数 | 1 |
@@ -131,7 +131,8 @@ cyctron 拼接 `<method>_<FFI-Symbol>`。工具 JSON 的
 ## 6. 构建与测试
 
 ```bash
-cargo build --release   # target/release/bashkit.dll
+cargo build --release   # Windows: target/release/bashkit.dll
+                        # Linux/macOS: 构建后复制 libbashkit.{so,dylib} 为 bashkit.{so,dylib}
 cargo test              # 9 个 FFI 用例
 cargo clippy --all-targets
 ```
@@ -149,7 +150,8 @@ dytes install plugin manager_bashkit
 ```
 
 安装后目录为 `plugins/manager_bashkit/`，其中包含 `dytes.json`、`mcp.json`
-（内联工具）、`prompts.json` 与 `taskflow.json`；`bashkit.dll` 复制到
+（内联工具）、`prompts.json` 与 `taskflow.json`；当前平台的
+`bashkit.dll` / `bashkit.so` / `bashkit.dylib` 复制到
 `<应用根>/libary/`。安装流程会整体覆盖该插件的提示词数组，并按
 `plugin_uuid` + `ffi_symbol` 合并任务流元素。
 

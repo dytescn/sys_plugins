@@ -21,13 +21,16 @@ jobs:
         include:
           - os: windows-latest
             platform: windows
+            built: bashkit.dll
             lib: bashkit.dll
           - os: ubuntu-latest
             platform: linux
-            lib: libbashkit.so
+            built: libbashkit.so
+            lib: bashkit.so
           - os: macos-latest
             platform: macos
-            lib: libbashkit.dylib
+            built: libbashkit.dylib
+            lib: bashkit.dylib
     steps:
       - uses: actions/checkout@v4
 
@@ -58,6 +61,9 @@ jobs:
         run: |
           cargo test
           cargo build --release
+          if [ "${{ matrix.built }}" != "${{ matrix.lib }}" ]; then
+            cp "target/release/${{ matrix.built }}" "target/release/${{ matrix.lib }}"
+          fi
           test -f "target/release/${{ matrix.lib }}"
 
       - name: Install dytes

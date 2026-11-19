@@ -1,7 +1,7 @@
 # bashkit FFI
 
 `bashkit` 是 [everruns/bashkit](https://github.com/everruns/bashkit) 的插件封装，
-编译为 `cdylib`（`bashkit.dll` / `libbashkit.so` / `libbashkit.dylib`），
+编译为 `cdylib`（`bashkit.dll` / `bashkit.so` / `bashkit.dylib`），
 由宿主通过 `POST /bashkit` + `FFI-Symbol: bash_exec` 调用
 （cyctron 查找 `libary/` 下对应动态库，并按 `<method>_<FFI-Symbol>` 拼接导出函数）。
 
